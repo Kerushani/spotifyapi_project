@@ -8,6 +8,8 @@ const Navbar = () => {
         <Link to={ROUTES.HOME}>spotifyInsights</Link>
         <Link to={ROUTES.PROFILE}>Profile</Link>
         <Link to={ROUTES.SIGNUP}>Sign Up</Link>
+        <Link to={ROUTES.SPOTIFYLOGIN}>Spotify Sign Up</Link>
+
       </ul>
     </nav>
   );

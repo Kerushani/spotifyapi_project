@@ -1,29 +1,25 @@
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
+
 import { FirebaseContext } from "../context/FirebaseContext";
 import { getAuth } from "@firebase/auth";
 import { createUserWithEmailAndPassword } from "@firebase/auth";
-import { useAuth } from "../context/AuthContext";
-// import { useHistory } from "react-router-dom"
-import * as ROUTES from "../constants/routes.js";
 
-const SignUp = () => {
+const LogIn= () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const auth = useAuth();
+  const { firebase } = useContext(FirebaseContext);
+  console.log(firebase)
 
   return (
     <div className="mt-[5%]">
       <form
         onSubmit={(event) => {
           event.preventDefault();
-        //   auth.signup({email, password, callback: () => useHistory.push(ROUTES.PROFILE)})
-          auth.signup({email, password, callback: () => {}})
-            .then(() => alert("signed up!"))
-            .catch((error) => alert(error.message));
-          setEmail("");
-          setPassword("");
+        //     createUserWithEmailAndPassword(getAuth(firebase), email, password)
+        //     .then(() => alert("signed up!"))
+        //     .catch((error) => alert(error.message));
+        //   setEmail("");
+        //   setPassword("");
         }}
       >
         <div className="mb-3">
@@ -65,4 +61,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default LogIn;
